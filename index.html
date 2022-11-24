@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Boozapp</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" integrity="sha511-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 </head>
@@ -16,107 +16,79 @@
             <div class="behind-green-line">
                 
             </div>
-            <div class="central-page container d-flex bg-primary">
+            <div class="central-page container d-flex">
                 <div class="avatar-container d-flex flex-column">
-                    <div class="nav-avatar">nav</div>
-                    <div class="notifiche">notifiche</div>
+                    <!-- nav-utenti -------------------------->
+                    <div class="nav-avatar d-flex justify-content-between align-items-center p-2 ">
+                        <div>
+                            <img src="img/avatar_1.jpg" class="img-user img-fluid" alt="">
+                            <span class="users-name fw-semibold">Sofia</span>
+                        </div>
+                        <!-- icone -->
+                        <div class="icons-container">
+                            <i class="fa-solid fa-circle-notch"></i>
+                            <i class="fa-solid fa-message"></i>
+                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                        </div>  
+                    </div>
+
+                    <div class="notification-container d-flex">
+                        <div class="bg-white p-1">
+                            <i class="fa-regular fa-bell-slash fs-2"></i>
+                        </div>
+
+                        <div>
+                            <div>
+                                <span>Ricevi notifiche di nuovi messaggi</span>
+                            </div>
+                            <div>
+                                <span class="text-secondary small text-decoration-underline pb-2">notifiche desktop</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="search-container">
+                        <form class="container-fluid">
+                            <div>
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                                <input type="text" form-control small>
+
+                            </div>
+                        </form>
+                        
+                    </div>
+
+
+
+
+
+
+
+
+
+
                     <div class="research">ricerca</div>
                     <div class="mexag-avatar flex-grow-1">
-                        <div class="d-flex">
+                        <div class="d-flex my-1">
                             <div>
                                 <img src="img/avatar_1.jpg" class="img-user img-fluid" alt="">
                             </div>
                             <div>
-                                <div class="users-name">nome</div>
-                                <div class="last-access">accesso</div>
+                                <div class="users-name fw-semibold">Michele</div>
+                                <div class="last-access">Ultimo accesso</div>
                             </div>
                         </div>
 
-                        <div class="d-flex">
-                            <div>
-                                <img src="img/avatar_1.jpg" class="img-user img-fluid" alt="">
-                            </div>
-                            <div>
-                                <div class="users-name">nome</div>
-                                <div class="last-access">accesso</div>
-                            </div>
-                        </div>
-                        
-                        <div class="d-flex">
-                            <div>
-                                <img src="img/avatar_1.jpg" class="img-user img-fluid" alt="">
-                            </div>
-                            <div>
-                                <div class="users-name">nome</div>
-                                <div class="last-access">accesso</div>
-                            </div>
-                        </div>
-                        
-                        <div class="d-flex">
-                            <div>
-                                <img src="img/avatar_1.jpg" class="img-user img-fluid" alt="">
-                            </div>
-                            <div>
-                                <div class="users-name">nome</div>
-                                <div class="last-access">accesso</div>
-                            </div>
-                        </div>
-                        
-                        <div class="d-flex">
-                            <div>
-                                <img src="img/avatar_1.jpg" class="img-user img-fluid" alt="">
-                            </div>
-                            <div>
-                                <div class="users-name">nome</div>
-                                <div class="last-access">accesso</div>
-                            </div>
-                        </div>
-                        
-                        <div class="d-flex">
-                            <div>
-                                <img src="img/avatar_1.jpg" class="img-user img-fluid" alt="">
-                            </div>
-                            <div>
-                                <div class="users-name">nome</div>
-                                <div class="last-access">accesso</div>
-                            </div>
-                        </div>
-                        
-                        <div class="d-flex">
-                            <div>
-                                <img src="img/avatar_1.jpg" class="img-user img-fluid" alt="">
-                            </div>
-                            <div>
-                                <div class="users-name">nome</div>
-                                <div class="last-access">accesso</div>
-                            </div>
-                        </div>
-                        
-                        <div class="d-flex">
-                            <div>
-                                <img src="img/avatar_1.jpg" class="img-user img-fluid" alt="">
-                            </div>
-                            <div>
-                                <div class="users-name">nome</div>
-                                <div class="last-access">accesso</div>
-                            </div>
-                        </div>
-                        
-                        <div class="d-flex">
-                            <div>
-                                <img src="img/avatar_1.jpg" class="img-user img-fluid" alt="">
-                            </div>
-                            <div>
-                                <div class="users-name">nome</div>
-                                <div class="last-access">accesso</div>
-                            </div>
-                        </div>
+                       
 
                     </div>
                 </div>
 
-                <div class="msg-container">
-                    sd
+                <div class="msg-container flex-grow-1 flex-column">
+                    <div class="nav-txt">nav</div>
+
+                    <div class=" pt-sooto text flex-grow-1"></div>
+                    
                 </div>
     
                 

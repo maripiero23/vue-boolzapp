@@ -2,6 +2,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    border: 1px dashed red;
 }
 
 body{
@@ -38,11 +39,19 @@ main>*{
 }
 
 .msg-container{
-    flex-grow: 1;
+    background-image:url(/img/mine.jpg);
 }
 
 
 .img-user{
-    width: 40px;
+    width: 50px;
     border-radius: 50%;
+}
+
+.notification-container{
+    background-color: rgba(142,218,252,255);
+}
+
+.mexag-avatar{
+    overflow: auto;
 }
