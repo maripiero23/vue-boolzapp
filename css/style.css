@@ -1,0 +1,48 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: rgba(214,219,216,255);
+    
+}
+body>*,
+main>*{
+    border: 1px dashed red;
+}
+
+
+
+.behind-green-line{
+    padding: 5rem;
+    position: absolute;
+    right: 0;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    background-color: rgba(0,150,136,255);
+}
+
+.central-page{
+    margin: auto;
+    margin-top: 60px;
+    height: 90vh;
+    
+}
+
+.avatar-container{
+    width: 250px;
+    flex-shrink: 0;
+}
+
+.msg-container{
+    flex-grow: 1;
+}
+
+
+.img-user{
+    width: 40px;
+    border-radius: 50%;
+}
