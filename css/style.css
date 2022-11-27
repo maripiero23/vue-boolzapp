@@ -1,22 +1,11 @@
-*{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    border: 1px dashed red;
-}
-
 body{
-    background-color: rgba(214,219,216,255);
-    
-}
-body>*,
-main>*{
-    border: 1px dashed red;
+    height: 100%vh;
 }
 
 
 
-.behind-green-line{
+
+.green-line{
     padding: 5rem;
     position: absolute;
     right: 0;
@@ -24,34 +13,84 @@ main>*{
     top: 0;
     z-index: -1;
     background-color: rgba(0,150,136,255);
-}
+} 
 
-.central-page{
-    margin: auto;
-    margin-top: 60px;
+.box-container{
     height: 90vh;
-    
+    background-color: white;
+    margin-top: 5vh;
+    overflow: hidden;
 }
 
-.avatar-container{
-    width: 250px;
+.left-sidebar{
+    width: 40%;
+    border-right: 1px solid gray;
     flex-shrink: 0;
 }
 
-.msg-container{
-    background-image:url(/img/mine.jpg);
+
+.chat-container{
+    flex-grow: 1;
+    /*conoscendo la larghezza di "left-side" potrei fare anche: 
+    width: calc( 100% - 250 );*/
+    background-image: url(../img/mine.jpg);
 }
 
-
-.img-user{
-    width: 50px;
+.avatar-icon-container{
+    width: 40px;
+    height: 40px;
+    background-color: rgba(0,150,136,255);
+    color: white;
     border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+
 }
 
-.notification-container{
-    background-color: rgba(142,218,252,255);
+    
+
+.bell-icon{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    
 }
 
-.mexag-avatar{
-    overflow: auto;
+.user-img-container{
+    width: 50px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    overflow: hidden;
+    border-color: rgba(242,242,242,255);
+}
+
+.primo-user{
+    width: 100%;
+    object-fit: cover;
+}
+
+.chat-container{
+    row-gap: 1rem;
+    
+
+}
+
+.chat-message{
+    padding: 1rem;
+    background-color: white;
+    max-width: 50%;
+    min-width: 20%;
+    border-radius: 1rem;
+}
+
+.sent{
+    background-color: rgba(213,249,186,255);
+    align-self: flex-end;
+}
+
+.active-el{
+    background-color: rgb(73, 72, 72);
 }

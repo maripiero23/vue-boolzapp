@@ -10,95 +10,144 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 </head>
-<body>
-    <div  id="app">
-        <main>
-            <div class="behind-green-line">
-                
+<body class="bg-secondary">
+    <div id="app">
+        <!-- barra verde in absolute -->
+        <div class="green-line"></div>
+
+        <main class="container box-container p-0 rounded d-flex">
+
+            <!-- colonna sx -->
+            <div class="left-sidebar d-flex flex-column">
+                <!-- Navbar -->
+                <nav class="navbar bg-light">
+                    <div class="container-fluid">
+                      <a class="navbar-brand" href="#">
+                        <img src="img/avatar_io.jpg" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+                        Sofia
+                      </a>
+                    </div>
+                </nav>
+
+                <!-- Banner -->
+                <div class="alert alert-primary d-flex rounded-0 mb-0" role="alert">
+                    <div class="avatar-icon-container">
+                        <i class="fa-solid fa-bell-slash img-fluid bell-icon bg-primary"></i>
+                    </div>
+                    <div>
+                        <div class="d-flex flex-column ps-2 text-dark fw-semibold">
+                            Ricevi notifiche dei nuovi messaggi
+                            <span> <a href="#" class="text-secondary small">Attiva notifiche descktop</a></span>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Input di ricerca -->
+                <div class="input-group">
+                    <span class="input-group-text rounded-0" id="basic-addon1"><a href=""><i class="fa-solid fa-magnifying-glass text-secondary"></i></a></span>
+                    <input type="text" list="ice-cream-flavors" class="form-control rounded-0" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                    <!--MILESTONE 4: uso il tag datalist per inserire i suggerimenti per accedere ai nome degli utenti -->
+                    <datalist id="ice-cream-flavors">
+                        <option value="Michele">
+                        <option value="Fabio">
+                        <option value="Samuele">
+                        <option value="Luisa">
+
+                    </datalist>
+                </div>
+
+
+                <!-- Lista contatti -->
+                <!-- 1)singolo contatto quindi applico il ciclo v-for -->
+                <!-- 2)condizione ternaria applico la classe active con il v-bind -->
+                <!-- al click sull'utente?() -->
+                <!-- 4)mustache per stamoare la proprietà (nome) di ogni singolo utente ad ogni ciclo -->
+
+                <div class="list-group list-group-flush overflow-auto flex-grow-1">
+                    <div class="list-group-item d-flex"
+                     v-for="(user, index) in usersList" key="i + name"
+                     :class="(index === currentIndex) ? 'active' : '' " 
+                     @click="selectedUser(index)">
+                        <div class="user-img-container">
+                            <img :src="`img/avatar${user.avatar}.jpg`" class="img-fluid primo-user" alt="">
+                        </div>
+                        <div class=" ps-3 flex-grow-1">
+                            <div>{{user.name}}</div>
+                            <small class="fw-light text-secondary">Ultimo accesso</small>
+                        </div>
+                        <div>
+                            <small>12:30</small>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
             </div>
-            <div class="central-page container d-flex">
-                <div class="avatar-container d-flex flex-column">
-                    <!-- nav-utenti -------------------------->
-                    <div class="nav-avatar d-flex justify-content-between align-items-center p-2 ">
-                        <div>
-                            <img src="img/avatar_1.jpg" class="img-user img-fluid" alt="">
-                            <span class="users-name fw-semibold">Sofia</span>
+
+
+            <!-- colonna dx -->
+            <div class="chat-container d-flex flex-column">
+
+                <!-- Navbar -->
+                <ul class="nav bg-light py-1 justify-content-between">
+                    <li class="nav-item ps-2">
+                        <div class="user-img-container">
+                            <img src="img/avatar_1.jpg" alt="">
                         </div>
-                        <!-- icone -->
-                        <div class="icons-container">
-                            <i class="fa-solid fa-circle-notch"></i>
-                            <i class="fa-solid fa-message"></i>
-                            <i class="fa-solid fa-ellipsis-vertical"></i>
-                        </div>  
-                    </div>
-
-                    <div class="notification-container d-flex">
-                        <div class="bg-white p-1">
-                            <i class="fa-regular fa-bell-slash fs-2"></i>
-                        </div>
-
-                        <div>
-                            <div>
-                                <span>Ricevi notifiche di nuovi messaggi</span>
-                            </div>
-                            <div>
-                                <span class="text-secondary small text-decoration-underline pb-2">notifiche desktop</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="search-container">
-                        <form class="container-fluid">
-                            <div>
-                                <i class="fa-solid fa-magnifying-glass"></i>
-                                <input type="text" form-control small>
-
-                            </div>
-                        </form>
-                        
-                    </div>
+                    </li> 
+                    <li class="nav-item d-flex align-items-center">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <i class="fa-solid fa-paperclip px-3"></i>
+                        <i class="fa-solid fa-ellipsis-vertical pe-3"></i>
+                    </li>
+                </ul>
 
 
-
-
-
-
-
-
-
-
-                    <div class="research">ricerca</div>
-                    <div class="mexag-avatar flex-grow-1">
-                        <div class="d-flex my-1">
-                            <div>
-                                <img src="img/avatar_1.jpg" class="img-user img-fluid" alt="">
-                            </div>
-                            <div>
-                                <div class="users-name fw-semibold">Michele</div>
-                                <div class="last-access">Ultimo accesso</div>
-                            </div>
-                        </div>
-
-                       
+                <!-- Box messaggi -->
+                <!-- con il v-bind e condizione ternaria applico la classe sent  -->
+                <!-- ciclo per avere tutti i messaggi -->
+                <!-- stampo la proprietà message nell'html -->
+                <div class="chat-container p-3 flex-grow-1 d-flex flex-column overflow-auto">
+                    <div class="chat-message" :class="(mex.status === 'sent') ? 'sent' : '' "
+                      v-for="(mex) in usersList[currentIndex].messages">
+                        {{mex.message}}
 
                     </div>
                 </div>
 
-                <div class="msg-container flex-grow-1 flex-column">
-                    <div class="nav-txt">nav</div>
-
-                    <div class=" pt-sooto text flex-grow-1"></div>
                     
+                  
+
+
+                <!-- Input chat -->
+                <!-- 1)v-model per aggiornare il messaggio che si sta per scrivere -->
+                <!-- evento-funzione per aggiungere il nuovo testo appena scritto nella chat -->
+                <div class="input-group rounded-0">
+                    <span class="input-group-text"><i class="fa-regular fa-face-smile"></i></span>
+                    <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" placeholder="Scrivi un messaggio"
+                    v-model="newMessaseText"
+                    @keyup.enter="addText(currentIndex)">   <!--quando rilascio il tasto enter-->
+                    <span class="input-group-text"><i class="fa-solid fa-microphone"></i></span>
                 </div>
-    
-                
+
             </div>
+
         </main>
 
+
     </div>
+   
 
 
     
     <script src="js/main.js"></script>
 </body>
 </html>
+
+
+<!-- <i class="fa-solid fa-circle-notch"></i>
+<i class="fa-solid fa-message"></i>
+<i class="fa-solid fa-ellipsis-vertical"></i> -->
