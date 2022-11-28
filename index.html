@@ -70,7 +70,7 @@
 
                 <div class="list-group list-group-flush overflow-auto flex-grow-1">
                     <div class="list-group-item d-flex"
-                     v-for="(user, index) in usersList" key="i + name"
+                     v-for="(user, index) in filterList" :key="i + user.name"
                      :class="(index === currentIndex) ? 'active' : '' " 
                      @click="selectedUser(index)">
                         <div class="user-img-container">
@@ -100,10 +100,8 @@
                 <ul class="nav bg-light py-1 justify-content-between">
                     <li class="nav-item ps-2">
                         <div class="user-img-container">
-                            <!-- non mi mette l'immagine -->
                             <div>
                                 <img class="immagine-user-open" :src="`img/avatar${usersList[currentIndex].avatar}.jpg `" alt="">
-
                             </div>
                             <div><small>Ultimo messaggioalle 12:00</small></div>
                         </div>
@@ -125,21 +123,20 @@
                       v-for="(mex) in usersList[currentIndex].messages">
                         {{mex.message}}
 
-                        <div class="dropdown d-flex justify-content-between">
+
+                        <!-- dropdown per eliminare messaggi -->
+
+                        <!-- <div class="dropdown d-flex justify-content-between">
                             <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                             </button>
                             <ul class="dropdown-menu">
                               <li><a class="dropdown-item" href="#">Message Info</a></li>
                               <li><a class="dropdown-item" href="#">Delete</a></li>
                             </ul>
-                          </div>
+                        </div> -->
 
                     </div>
                 </div>
-
-                    
-                  
-
 
                 <!-- Input chat -->
                 <!-- 1)v-model per aggiornare il messaggio che si sta per scrivere -->

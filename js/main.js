@@ -93,7 +93,9 @@ const app = createApp({
       
     }
   },
+
   methods: {
+    //memorizzo l'indice cliccato
     selectedUser(index){
       this.currentIndex = index;
     },
@@ -119,7 +121,7 @@ const app = createApp({
       });
 
       //richiamo la funzione di aggiunta messaggio di risposta
-      setTimeout(this.sendOk, 3000);      
+      setTimeout(this.sendOk, 2000);      
       
 
       // appena ivio il nuovo messaggio faccio un reset dell'input altrimenti
@@ -128,21 +130,26 @@ const app = createApp({
     },
 
 
-    
-
-     
-
     //Cancellazione di un messaggio
     // messageDelete(currentIndex){
     //   const confirmed = confirm("Si sicuro di voler cancellare questo messaggio?");
 
     //   if(confirmed){
+    //     this.usersList.messages.splice(currentIndex, 1),
     //     this.usersList[currentIndex].messages.splice(currentIndex, 1),
-
     //   }
-
     // }
     
-  }
+  },
+
+  computed:{
+    //funzione per filtrare la lista quando scrivo nell'input di ricerca
+    //nel v-for do il nome di questa funzione così mi cicla la lista filtrata
+    filterList(){
+      return this.usersList.filter(user =>{
+        return user.name.toLowerCase().includes(this.searchUserText.toLowerCase());
+      })
+    },
+  },
 
 }).mount('#app');
