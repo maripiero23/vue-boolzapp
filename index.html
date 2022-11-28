@@ -8,7 +8,10 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" integrity="sha511-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/luxon@3.1.0/build/global/luxon.min.js"></script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
 </head>
 <body class="bg-secondary">
     <div id="app">
@@ -46,7 +49,8 @@
                 <!-- Input di ricerca -->
                 <div class="input-group">
                     <span class="input-group-text rounded-0" id="basic-addon1"><a href=""><i class="fa-solid fa-magnifying-glass text-secondary"></i></a></span>
-                    <input type="text" list="ice-cream-flavors" class="form-control rounded-0" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                    <input type="text" list="ice-cream-flavors" class="form-control rounded-0" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1"
+                    @keyup.enter="searchUser" v-model="searchUserText">
                     <!--MILESTONE 4: uso il tag datalist per inserire i suggerimenti per accedere ai nome degli utenti -->
                     <datalist id="ice-cream-flavors">
                         <option value="Michele">
@@ -88,6 +92,7 @@
             </div>
 
 
+            
             <!-- colonna dx -->
             <div class="chat-container d-flex flex-column">
 
@@ -96,7 +101,11 @@
                     <li class="nav-item ps-2">
                         <div class="user-img-container">
                             <!-- non mi mette l'immagine -->
-                            <img class="immagine-user-open" :src="usersList[currentIndex].avatar" alt="">
+                            <div>
+                                <img class="immagine-user-open" :src="`img/avatar${usersList[currentIndex].avatar}.jpg `" alt="">
+
+                            </div>
+                            <div><small>Ultimo messaggioalle 12:00</small></div>
                         </div>
                     </li> 
                     <li class="nav-item d-flex align-items-center">
@@ -116,6 +125,15 @@
                       v-for="(mex) in usersList[currentIndex].messages">
                         {{mex.message}}
 
+                        <div class="dropdown d-flex justify-content-between">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            </button>
+                            <ul class="dropdown-menu">
+                              <li><a class="dropdown-item" href="#">Message Info</a></li>
+                              <li><a class="dropdown-item" href="#">Delete</a></li>
+                            </ul>
+                          </div>
+
                     </div>
                 </div>
 
@@ -129,7 +147,7 @@
                 <div class="input-group rounded-0">
                     <span class="input-group-text"><i class="fa-regular fa-face-smile"></i></span>
                     <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" placeholder="Scrivi un messaggio"
-                    v-model="newMessaseText"
+                    v-model="newMessageText"
                     @keyup.enter="addText(currentIndex)">   <!--quando rilascio il tasto enter-->
                     <span class="input-group-text"><i class="fa-solid fa-microphone"></i></span>
                 </div>

@@ -87,7 +87,9 @@ const app = createApp({
 
       currentIndex: 0,
 
-      newMessaseText:"",
+      newMessageText:"",
+
+      searchUserText:"",
       
     }
   },
@@ -95,20 +97,40 @@ const app = createApp({
     selectedUser(index){
       this.currentIndex = index;
     },
+    //quando aggiungo il nuovo messaggio; con questa nuova funzione e con setTimeout,
+    //dopo 3 secondi aggiungo un messaggio di risposta con scritto ok
+    sendOk() {
+
+      this.usersList[this.currentIndex].messages.push({ 
+        date: new Date().toLocaleString,
+        message: "ok",
+        status: 'received'
+      });   
+
+    },
     //Funzione per aggiungere un nuovo messaggio
     addText(currentIndex){
+
       this.usersList[currentIndex].messages.push({ 
         date: new Date().toLocaleString,
-        message: this.newMessaseText,
+        message: this.newMessageText,
         status: 'sent'
 
-      }),
+      });
+
+      //richiamo la funzione di aggiunta messaggio di risposta
+      setTimeout(this.sendOk, 3000);      
       
 
       // appena ivio il nuovo messaggio faccio un reset dell'input altrimenti
       //il testo scritto rimarrebbe nell' input
-      this.newMessaseText = "";
+      this.newMessageText = "";
     },
+
+
+    
+
+     
 
     //Cancellazione di un messaggio
     // messageDelete(currentIndex){
